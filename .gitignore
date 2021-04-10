@@ -1,0 +1,9 @@
+*.idea/
+*.project
+**.iml
+**/target/
+**/application-local.properties
+**/application-local.yml
+**/log4j2-local.xml
+**/log/
+**/bin/
