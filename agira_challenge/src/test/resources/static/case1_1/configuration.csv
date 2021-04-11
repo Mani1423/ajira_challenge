@@ -1,0 +1,2 @@
+step|column_change_type|old_column|new_column|input1|input2
+DATE_FORMAT|REPLACE|dob|date_of_birth|yyyy-MM-dd|MMM d, yyyy

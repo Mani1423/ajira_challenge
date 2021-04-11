@@ -27,6 +27,36 @@ public class MainTest {
     }
 
     @Test
+    public void test_case1_1() throws IOException {
+        String inputFile = "./src/test/resources/static/case1_1/inputfile.csv";
+        String configuration = "./src/test/resources/static/case1_1/configuration.csv";
+        String actual = "./src/test/resources/static/case1_1/actual/outfile.csv";
+        String expected = "./src/test/resources/static/case1_1/expected/outfile.csv";
+        String [] args = new String[3];
+        args[0] = inputFile;
+        args[1] = configuration;
+        args[2] = actual;
+        MainApplication.main(args);
+        Assertions.assertTrue(Comparator.compare(actual, expected));
+        Files.deleteIfExists(Paths.get(actual));
+    }
+
+    @Test
+    public void test_case1_2() throws IOException {
+        String inputFile = "./src/test/resources/static/case1_2/inputfile.csv";
+        String configuration = "./src/test/resources/static/case1_2/configuration.csv";
+        String actual = "./src/test/resources/static/case1_2/actual/outfile.csv";
+        String expected = "./src/test/resources/static/case1_2/expected/outfile.csv";
+        String [] args = new String[3];
+        args[0] = inputFile;
+        args[1] = configuration;
+        args[2] = actual;
+        MainApplication.main(args);
+        Assertions.assertTrue(Comparator.compare(actual, expected));
+        Files.deleteIfExists(Paths.get(actual));
+    }
+
+    @Test
     public void test_case2() throws IOException {
         String inputFile = "./src/test/resources/static/case2/inputfile.csv";
         String configuration = "./src/test/resources/static/case2/configuration.csv";

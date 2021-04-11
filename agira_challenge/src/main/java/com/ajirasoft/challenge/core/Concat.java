@@ -24,7 +24,7 @@ public class Concat implements Executor {
         try(BufferedReader reader = fileHandler.getFileReader(inputFile)) {
             String data = reader.readLine();
             Map<String, Integer> headerMap = DataHelper.getHeaderMap(data, delimiter);
-            outputData.add("name");
+            outputData.add(DataHelper.columnReplacer(data, delimiter, config));
             data = reader.readLine();
             while (null != data) {
                 String[] values = DataHelper.getDataFromLine(data, delimiter);

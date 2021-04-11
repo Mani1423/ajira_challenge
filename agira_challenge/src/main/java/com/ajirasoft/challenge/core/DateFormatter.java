@@ -28,11 +28,11 @@ public class DateFormatter implements Executor {
         try(BufferedReader reader = fileHandler.getFileReader(inputFile)) {
             String data = reader.readLine();
             Map<String, Integer> headerMap = DataHelper.getHeaderMap(data, delimiter);
-            outputData.add(data);
+            outputData.add(DataHelper.columnReplacer(data, delimiter, config));
             data = reader.readLine();
             while (null != data) {
                 String[] values = DataHelper.getDataFromLine(data, delimiter);
-                String dob = values[headerMap.get("dob")];
+                String dob = values[headerMap.get(config.getOldColumn())];
                 Date date = inputFormat.parse(dob);
                 List<String> outputValues = new ArrayList<>();
                 outputValues.add(values[headerMap.get("name")]);

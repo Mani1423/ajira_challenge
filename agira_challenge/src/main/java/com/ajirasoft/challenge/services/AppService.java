@@ -63,14 +63,17 @@ public class AppService {
             while (null != data) {
                 String[] values = DataHelper.getDataFromLine(data, INPUTDELIMITER);
                 int stepIndex = headerMap.get("step");
+                int columnChangeIndex = headerMap.get("column_change_type");
+                int oldColumnIndex = headerMap.get("old_column");
+                int newColumnIndex = headerMap.get("new_column");
                 String stepName = values[stepIndex];
                 List<String> formats = new ArrayList<>();
-                for(int i = 0; i < headerMap.size(); i++) {
-                    if(i != stepIndex) {
-                        formats.add(values[i]);
-                    }
+
+                // Ignore first 4 static configuration columns
+                for(int i = 4; i < headerMap.size(); i++) {
+                    formats.add(values[i]);
                 }
-                configs.add(new Config(stepName, formats));
+                configs.add(new Config(stepName, values[columnChangeIndex], values[oldColumnIndex], values[newColumnIndex], formats));
                 data = reader.readLine();
             }
         } catch (IOException ex) {

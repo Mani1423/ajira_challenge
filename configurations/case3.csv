@@ -1,2 +1,2 @@
-step|input1|input2
-CONCAT|first_name|last_name
+step|column_change_type|old_column|new_column|input1|input2
+CONCAT|REPLACE|first_name:last_name|name|first_name|last_name
